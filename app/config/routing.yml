@@ -1,0 +1,16 @@
+shop_user:
+    resource: "@ShopUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+blog_user:
+    resource: "@ShopUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: @AppBundle/Controller/
+    type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
