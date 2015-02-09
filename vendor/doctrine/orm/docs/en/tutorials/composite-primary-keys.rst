@@ -287,7 +287,7 @@ One good example for this is a user-address relationship:
 Use-Case 3: Join-Table with Metadata
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the classic order product shop example there is the concept of the order item
+In the classic order product blog example there is the concept of the order item
 which contains references to order and product and additional data such as the amount
 of products purchased and maybe even the current price.
 

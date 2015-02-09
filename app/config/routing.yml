@@ -2,8 +2,8 @@ home:
     resource: "@HomeBundle/Resources/config/routing.yml"
     prefix:   /
 
-shop_user:
-    resource: "@ShopUserBundle/Controller/"
+blog_user:
+    resource: "@BlogUserBundle/Controller/"
     type:     annotation
     prefix:   /
 

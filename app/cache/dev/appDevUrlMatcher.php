@@ -129,7 +129,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         // hello
         if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'hello')), array (  '_controller' => 'Shop\\HomeBundle\\Controller\\DefaultController::indexAction',));
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'hello')), array (  '_controller' => 'Blog\\HomeBundle\\Controller\\DefaultController::indexAction',));
         }
 
         // home_app
@@ -138,12 +138,12 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->redirect($pathinfo.'/', 'home_app');
             }
 
-            return array (  '_controller' => 'Shop\\HomeBundle\\Controller\\HomeController::indexAction',  '_route' => 'home_app',);
+            return array (  '_controller' => 'Blog\\HomeBundle\\Controller\\HomeController::indexAction',  '_route' => 'home_app',);
         }
 
-        // shopuser_default_index
+        // bloguser_default_index
         if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'shopuser_default_index')), array (  '_controller' => 'ShopUserBundle\\Controller\\DefaultController::indexAction',));
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'bloguser_default_index')), array (  '_controller' => 'BlogUserBundle\\Controller\\DefaultController::indexAction',));
         }
 
         // homepage

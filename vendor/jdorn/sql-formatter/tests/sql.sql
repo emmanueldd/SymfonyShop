@@ -89,7 +89,7 @@ CREATE TABLE `PREFIX_carrier` (
 CREATE TABLE IF NOT EXISTS `PREFIX_specific_price_rule` (
 	`id_specific_price_rule` int(10) unsigned NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(255) NOT NULL,
-	`id_shop` int(11) unsigned NOT NULL DEFAULT '1',
+	`id_blog` int(11) unsigned NOT NULL DEFAULT '1',
 	`id_currency` int(10) unsigned NOT NULL,
 	`id_country` int(10) unsigned NOT NULL,
 	`id_group` int(10) unsigned NOT NULL,
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `PREFIX_specific_price_rule` (
 	`from` datetime NOT NULL,
 	`to` datetime NOT NULL,
 	PRIMARY KEY (`id_specific_price_rule`),
-	KEY `id_product` (`id_shop`,`id_currency`,`id_country`,`id_group`,`from_quantity`,`from`,`to`)
+	KEY `id_product` (`id_blog`,`id_currency`,`id_country`,`id_group`,`from_quantity`,`from`,`to`)
 ) ENGINE=ENGINE_TYPE  DEFAULT CHARSET=utf8
 
 UPDATE `PREFIX_configuration` SET value = '6' WHERE name = 'PS_SEARCH_WEIGHT_PNAME'
@@ -115,7 +115,7 @@ WHERE
 	OR
 	id_hook = (SELECT id_hook FROM `PREFIX_hook` WHERE name = 'actionAuthentication') AND id_module = (SELECT id_module FROM `PREFIX_module` WHERE name = 'statsdata')
 	OR
-	id_hook = (SELECT id_hook FROM `PREFIX_hook` WHERE name = 'actionShopDataDuplication') AND id_module = (SELECT id_module FROM `PREFIX_module` WHERE name = 'homeslider')
+	id_hook = (SELECT id_hook FROM `PREFIX_hook` WHERE name = 'actionBlogDataDuplication') AND id_module = (SELECT id_module FROM `PREFIX_module` WHERE name = 'homeslider')
 	OR
 	id_hook = (SELECT id_hook FROM `PREFIX_hook` WHERE name = 'displayTop') AND id_module = (SELECT id_module FROM `PREFIX_module` WHERE name = 'blocklanguages')
 	OR
@@ -157,7 +157,7 @@ ALTER TABLE `PREFIX_customer` ADD `note` text AFTER `secure_key`
 
 ALTER TABLE `PREFIX_contact` ADD `customer_service` tinyint(1) NOT NULL DEFAULT 0 AFTER `email`
 
-INSERT INTO `PREFIX_specific_price` (`id_product`, `id_shop`, `id_currency`, `id_country`, `id_group`, `priority`, `price`, `from_quantity`, `reduction`, `reduction_type`, `from`, `to`)
+INSERT INTO `PREFIX_specific_price` (`id_product`, `id_blog`, `id_currency`, `id_country`, `id_group`, `priority`, `price`, `from_quantity`, `reduction`, `reduction_type`, `from`, `to`)
 	(	SELECT dq.`id_product`, 1, 1, 0, 1, 0, 0.00, dq.`quantity`, IF(dq.`id_discount_type` = 2, dq.`value`, dq.`value` / 100), IF (dq.`id_discount_type` = 2, 'amount', 'percentage'), '0000-00-00 00:00:00', '0000-00-00 00:00:00'
 		FROM `PREFIX_discount_quantity` dq
 		INNER JOIN `PREFIX_product` p ON (p.`id_product` = dq.`id_product`)
@@ -165,7 +165,7 @@ INSERT INTO `PREFIX_specific_price` (`id_product`, `id_shop`, `id_currency`, `id
 
 DROP TABLE `PREFIX_discount_quantity`
 
-INSERT INTO `PREFIX_specific_price` (`id_product`, `id_shop`, `id_currency`, `id_country`, `id_group`, `priority`, `price`, `from_quantity`, `reduction`, `reduction_type`, `from`, `to`) (
+INSERT INTO `PREFIX_specific_price` (`id_product`, `id_blog`, `id_currency`, `id_country`, `id_group`, `priority`, `price`, `from_quantity`, `reduction`, `reduction_type`, `from`, `to`) (
 	SELECT
 		p.`id_product`,
 		1,
@@ -190,7 +190,7 @@ ALTER TABLE `PREFIX_product`
 	DROP `reduction_to`
 
 INSERT INTO `PREFIX_configuration` (`name`, `value`, `date_add`, `date_upd`) VALUES
-('PS_SPECIFIC_PRICE_PRIORITIES', 'id_shop;id_currency;id_country;id_group', NOW(), NOW()),
+('PS_SPECIFIC_PRICE_PRIORITIES', 'id_blog;id_currency;id_country;id_group', NOW(), NOW()),
 ('PS_TAX_DISPLAY', 0, NOW(), NOW()),
 ('PS_SMARTY_FORCE_COMPILE', 1, NOW(), NOW()),
 ('PS_DISTANCE_UNIT', 'km', NOW(), NOW()),

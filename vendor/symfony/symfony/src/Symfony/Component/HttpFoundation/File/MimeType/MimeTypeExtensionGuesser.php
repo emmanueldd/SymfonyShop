@@ -667,7 +667,7 @@ class MimeTypeExtensionGuesser implements ExtensionGuesserInterface
         'image/sgi' => 'sgi',
         'image/svg+xml' => 'svg',
         'image/tiff' => 'tiff',
-        'image/vnd.adobe.photoshop' => 'psd',
+        'image/vnd.adobe.photoblog' => 'psd',
         'image/vnd.dece.graphic' => 'uvi',
         'image/vnd.dvb.subtitle' => 'sub',
         'image/vnd.djvu' => 'djvu',

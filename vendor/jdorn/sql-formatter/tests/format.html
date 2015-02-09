@@ -116,7 +116,7 @@ CREATE TABLE `PREFIX_carrier` (
 CREATE TABLE IF NOT EXISTS `PREFIX_specific_price_rule` (
   `id_specific_price_rule` int(10) unsigned NOT NULL AUTO_INCREMENT, 
   `name` VARCHAR(255) NOT NULL, 
-  `id_shop` int(11) unsigned NOT NULL DEFAULT '1', 
+  `id_blog` int(11) unsigned NOT NULL DEFAULT '1', 
   `id_currency` int(10) unsigned NOT NULL, 
   `id_country` int(10) unsigned NOT NULL, 
   `id_group` int(10) unsigned NOT NULL, 
@@ -128,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `PREFIX_specific_price_rule` (
   `to` datetime NOT NULL, 
   PRIMARY KEY (`id_specific_price_rule`), 
   KEY `id_product` (
-    `id_shop`, `id_currency`, `id_country`, 
+    `id_blog`, `id_currency`, `id_country`, 
     `id_group`, `from_quantity`, `from`, 
     `to`
   )
@@ -216,7 +216,7 @@ WHERE
     FROM 
       `PREFIX_hook` 
     WHERE 
-      name = 'actionShopDataDuplication'
+      name = 'actionBlogDataDuplication'
   ) 
   AND id_module = (
     SELECT 
@@ -489,7 +489,7 @@ AFTER
   `email`
 
 INSERT INTO `PREFIX_specific_price` (
-  `id_product`, `id_shop`, `id_currency`, 
+  `id_product`, `id_blog`, `id_currency`, 
   `id_country`, `id_group`, `priority`, 
   `price`, `from_quantity`, `reduction`, 
   `reduction_type`, `from`, `to`
@@ -522,7 +522,7 @@ DROP
   TABLE `PREFIX_discount_quantity`
 
 INSERT INTO `PREFIX_specific_price` (
-  `id_product`, `id_shop`, `id_currency`, 
+  `id_product`, `id_blog`, `id_currency`, 
   `id_country`, `id_group`, `priority`, 
   `price`, `from_quantity`, `reduction`, 
   `reduction_type`, `from`, `to`
@@ -576,7 +576,7 @@ INSERT INTO `PREFIX_configuration` (
 VALUES 
   (
     'PS_SPECIFIC_PRICE_PRIORITIES', 
-    'id_shop;id_currency;id_country;id_group', 
+    'id_blog;id_currency;id_country;id_group', 
     NOW(), NOW()
   ), 
   ('PS_TAX_DISPLAY', 0, NOW(), NOW()), 

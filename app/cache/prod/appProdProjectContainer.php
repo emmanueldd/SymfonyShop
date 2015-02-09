@@ -316,10 +316,10 @@ class appProdProjectContainer extends Container
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
         $a = new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain();
-        $a->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($this->get('annotation_reader'), array(0 => ($this->targetDirs[3].'/src/ShopUserBundle/Entity'))), 'ShopUserBundle\\Entity');
+        $a->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($this->get('annotation_reader'), array(0 => ($this->targetDirs[3].'/src/BlogUserBundle/Entity'))), 'BlogUserBundle\\Entity');
         $a->addDriver(new \Doctrine\ORM\Mapping\Driver\XmlDriver(new \Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator(array(($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/config/doctrine/model') => 'FOS\\UserBundle\\Model'), '.orm.xml')), 'FOS\\UserBundle\\Model');
         $b = new \Doctrine\ORM\Configuration();
-        $b->setEntityNamespaces(array('ShopUserBundle' => 'ShopUserBundle\\Entity'));
+        $b->setEntityNamespaces(array('BlogUserBundle' => 'BlogUserBundle\\Entity'));
         $b->setMetadataCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_metadata_cache'));
         $b->setQueryCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_query_cache'));
         $b->setResultCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_result_cache'));
@@ -575,7 +575,7 @@ class appProdProjectContainer extends Container
     }
     protected function getFosUser_ChangePassword_Form_TypeService()
     {
-        return $this->services['fos_user.change_password.form.type'] = new \FOS\UserBundle\Form\Type\ChangePasswordFormType('Shop\\UserBundle\\Entity\\User');
+        return $this->services['fos_user.change_password.form.type'] = new \FOS\UserBundle\Form\Type\ChangePasswordFormType('Blog\\UserBundle\\Entity\\User');
     }
     protected function getFosUser_Listener_AuthenticationService()
     {
@@ -599,7 +599,7 @@ class appProdProjectContainer extends Container
     }
     protected function getFosUser_Profile_Form_TypeService()
     {
-        return $this->services['fos_user.profile.form.type'] = new \FOS\UserBundle\Form\Type\ProfileFormType('Shop\\UserBundle\\Entity\\User');
+        return $this->services['fos_user.profile.form.type'] = new \FOS\UserBundle\Form\Type\ProfileFormType('Blog\\UserBundle\\Entity\\User');
     }
     protected function getFosUser_Registration_Form_FactoryService()
     {
@@ -607,7 +607,7 @@ class appProdProjectContainer extends Container
     }
     protected function getFosUser_Registration_Form_TypeService()
     {
-        return $this->services['fos_user.registration.form.type'] = new \FOS\UserBundle\Form\Type\RegistrationFormType('Shop\\UserBundle\\Entity\\User');
+        return $this->services['fos_user.registration.form.type'] = new \FOS\UserBundle\Form\Type\RegistrationFormType('Blog\\UserBundle\\Entity\\User');
     }
     protected function getFosUser_Resetting_Form_FactoryService()
     {
@@ -615,7 +615,7 @@ class appProdProjectContainer extends Container
     }
     protected function getFosUser_Resetting_Form_TypeService()
     {
-        return $this->services['fos_user.resetting.form.type'] = new \FOS\UserBundle\Form\Type\ResettingFormType('Shop\\UserBundle\\Entity\\User');
+        return $this->services['fos_user.resetting.form.type'] = new \FOS\UserBundle\Form\Type\ResettingFormType('Blog\\UserBundle\\Entity\\User');
     }
     protected function getFosUser_Security_InteractiveLoginListenerService()
     {
@@ -628,7 +628,7 @@ class appProdProjectContainer extends Container
     protected function getFosUser_UserManagerService()
     {
         $a = $this->get('fos_user.util.email_canonicalizer');
-        return $this->services['fos_user.user_manager'] = new \FOS\UserBundle\Doctrine\UserManager($this->get('security.encoder_factory'), $a, $a, $this->get('doctrine')->getManager(NULL), 'Shop\\UserBundle\\Entity\\User');
+        return $this->services['fos_user.user_manager'] = new \FOS\UserBundle\Doctrine\UserManager($this->get('security.encoder_factory'), $a, $a, $this->get('doctrine')->getManager(NULL), 'Blog\\UserBundle\\Entity\\User');
     }
     protected function getFosUser_UsernameFormTypeService()
     {
@@ -1430,7 +1430,7 @@ class appProdProjectContainer extends Container
         $instance->addPath(($this->targetDirs[3].'/vendor/symfony/swiftmailer-bundle/Resources/views'), 'Swiftmailer');
         $instance->addPath(($this->targetDirs[3].'/vendor/doctrine/doctrine-bundle/Resources/views'), 'Doctrine');
         $instance->addPath(($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/views'), 'FOSUser');
-        $instance->addPath(($this->targetDirs[3].'/src/ShopUserBundle/Resources/views'), 'ShopUser');
+        $instance->addPath(($this->targetDirs[3].'/src/BlogUserBundle/Resources/views'), 'BlogUser');
         $instance->addPath(($this->targetDirs[2].'/Resources/views'));
         $instance->addPath(($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form'));
         return $instance;
@@ -1569,7 +1569,7 @@ class appProdProjectContainer extends Container
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
                 'AppBundle' => 'AppBundle\\AppBundle',
                 'FOSUserBundle' => 'FOS\\UserBundle\\FOSUserBundle',
-                'ShopUserBundle' => 'ShopUserBundle\\ShopUserBundle',
+                'BlogUserBundle' => 'BlogUserBundle\\BlogUserBundle',
             ),
             'kernel.charset' => 'UTF-8',
             'kernel.container_class' => 'appProdProjectContainer',
@@ -2104,7 +2104,7 @@ class appProdProjectContainer extends Container
             'fos_user.storage' => 'orm',
             'fos_user.firewall_name' => 'main',
             'fos_user.model_manager_name' => NULL,
-            'fos_user.model.user.class' => 'Shop\\UserBundle\\Entity\\User',
+            'fos_user.model.user.class' => 'Blog\\UserBundle\\Entity\\User',
             'fos_user.profile.form.type' => 'fos_user_profile',
             'fos_user.profile.form.name' => 'fos_user_profile_form',
             'fos_user.profile.form.validation_groups' => array(

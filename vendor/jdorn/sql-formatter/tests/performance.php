@@ -6,7 +6,7 @@ require '../lib/SqlFormatter.php';
 //a value between 10 and 20 seems to give the best result
 SqlFormatter::$max_cachekey_size = 15;
 
-//the sample query file is filled with install scripts for PrestaShop
+//the sample query file is filled with install scripts for PrestaBlog
 //and some sample catalog data from Magento
 $contents = file_get_contents('sql.sql');
 

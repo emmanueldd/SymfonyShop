@@ -64,7 +64,7 @@ if "%1" == "json" (
 if "%1" == "htmlhelp" (
 	%SPHINXBUILD% -b htmlhelp %ALLSPHINXOPTS% %BUILDDIR%/htmlhelp
 	echo.
-	echo.Build finished; now you can run HTML Help Workshop with the ^
+	echo.Build finished; now you can run HTML Help Workblog with the ^
 .hhp project file in %BUILDDIR%/htmlhelp.
 	goto end
 )
