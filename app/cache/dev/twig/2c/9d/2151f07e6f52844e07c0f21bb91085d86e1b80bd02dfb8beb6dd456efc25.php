@@ -9,7 +9,7 @@ class __TwigTemplate_2c9d2151f07e6f52844e07c0f21bb91085d86e1b80bd02dfb8beb6dd456
 
         // line 1
         try {
-            $this->parent = $this->env->loadTemplate("FOSUserBundle::layout.html.twig");
+            $this->parent = $this->env->loadTemplate("FOSUserBundle::layouut.html.twig");
         } catch (Twig_Error_Loader $e) {
             $e->setTemplateFile($this->getTemplateName());
             $e->setTemplateLine(1);
@@ -24,7 +24,7 @@ class __TwigTemplate_2c9d2151f07e6f52844e07c0f21bb91085d86e1b80bd02dfb8beb6dd456
 
     protected function doGetParent(array $context)
     {
-        return "FOSUserBundle::layout.html.twig";
+        return "FOSUserBundle::layouut.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())

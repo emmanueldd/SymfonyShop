@@ -9,7 +9,7 @@ class __TwigTemplate_5ac1ef8f8eec94873f2489f3a90e6600d776de591c1fdfd37c939ae5097
 
         // line 1
         try {
-            $this->parent = $this->env->loadTemplate("AcmeDemoBundle::layout.html.twig");
+            $this->parent = $this->env->loadTemplate("AcmeDemoBundle::layouut.html.twig");
         } catch (Twig_Error_Loader $e) {
             $e->setTemplateFile($this->getTemplateName());
             $e->setTemplateLine(1);
@@ -26,7 +26,7 @@ class __TwigTemplate_5ac1ef8f8eec94873f2489f3a90e6600d776de591c1fdfd37c939ae5097
 
     protected function doGetParent(array $context)
     {
-        return "AcmeDemoBundle::layout.html.twig";
+        return "AcmeDemoBundle::layouut.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -40,10 +40,10 @@ class __TwigTemplate_5ac1ef8f8eec94873f2489f3a90e6600d776de591c1fdfd37c939ae5097
         echo "Acme Demo Application";
     }
 
-    // line 5
+    // line 7
     public function block_content($context, array $blocks = array())
     {
-        // line 6
+        // line 8
         echo "    ";
         $this->displayBlock('fos_user_content', $context, $blocks);
     }
@@ -64,6 +64,6 @@ class __TwigTemplate_5ac1ef8f8eec94873f2489f3a90e6600d776de591c1fdfd37c939ae5097
 
     public function getDebugInfo()
     {
-        return array (  47 => 6,  44 => 5,  38 => 3,  11 => 1,);
+        return array (  47 => 8,  44 => 7,  38 => 3,  11 => 1,);
     }
 }
